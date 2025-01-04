@@ -50,6 +50,7 @@ const Products = ({ tag, filters, sort, query }) => {
 	// Función para obtener los productos
 	const getProducts = useCallback(async () => {
 		try {
+			setProducts([]);
 			setIsLoading(true);
 			// Llama a la función getProductsFunction para obtener los productos
 			const res = await getProductsFunction(currentPage, pageSize, tag, query);
