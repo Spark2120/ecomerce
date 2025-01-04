@@ -124,6 +124,9 @@ const MenuItem = styled.div`
 	}
 `;
 
+const Logo = styled.h3`
+	font-size: 2rem;
+`;
 const MenuItemCart = styled.div`
 	${mobile({ marginRight: '1rem', fontSize: '1rem' })}
 	font-size: 1rem;
@@ -234,8 +237,10 @@ const Navbar = React.memo(({ darkMode, setDarkMode }) => {
 								style={{ cursor: 'pointer' }}
 							/>
 						</MenuIconMobile>
+
 						<SearchBar />
 					</Left>
+
 					<Right role="menu">
 						{/* Menú desplegable para dispositivos móviles */}
 						{isMobile && isMenuOpen && (

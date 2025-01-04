@@ -6,6 +6,7 @@ import { mobile } from '../../responsive';
 // import { color, size, price } from '../utils/data/colorData';
 // components
 import Products from '../../components/Layout/Products';
+import useScrollToTop from '../../hooks/useScrollToTop';
 // import Newsletter from '../components/Newsletter';
 // ui
 // import Filter from '../components/ui/Filter';
@@ -35,9 +36,9 @@ const ProductSearchList = ({ darkMode, setDarkMode }) => {
 	const route = location.pathname.split('/');
 	const [filters, setFilters] = useState(null);
 	const [sort, setSort] = useState('newest');
+	useScrollToTop();
 
 	useEffect(() => {
-		window.scrollTo({ top: 0, behavior: 'smooth' });
 		if (route[2] === 'search') {
 			// if the url[2] has search
 			setQuery(route[3]);

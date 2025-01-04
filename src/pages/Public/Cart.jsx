@@ -2,15 +2,15 @@ import styled from 'styled-components';
 import { Link } from 'react-router-dom';
 import { useSelector } from 'react-redux';
 import { useEffect, useState } from 'react';
-
 import { Shop } from '@material-ui/icons';
 
 //components
 import ButtonElement from '../../components/ui/Button';
 // pages
 import FormCheckout from '../../components/form/FormCheckout';
-import { mobile,pc } from '../../responsive';
+import { mobile, pc } from '../../responsive';
 import ProductsCarts from '../../components/ui/ProductsCart';
+import useScrollToTop from '../../hooks/useScrollToTop';
 
 const Container = styled.section`
 	min-height: 100vh;
@@ -58,10 +58,7 @@ const HiddenOnPc = styled.div`
 const Cart = ({ darkMode, setDarkMode }) => {
 	const cart = useSelector((state) => state.cart);
 	const [paymentForm, setPaymentForm] = useState(false);
-
-	useEffect(() => {
-		window.scrollTo({ top: 0, behavior: 'smooth' });
-	}, []);
+	useScrollToTop();
 
 	return (
 		<Container role="contentinfo">
