@@ -14,10 +14,11 @@ import QuantityButton from '../../components/ui/quantityButtons';
 // functions
 import { productById } from '../../utils/logic/products';
 import { addToReduxCart } from '../../utils/logic/cart.js';
+import useScrollToTop from '../../hooks/useScrollToTop';
 
 const Container = styled.section`
 	display-items: center;
-	background-color: ${({ theme }) => theme.bgLighter};
+	background-color: ${({ theme }) => theme.bg};
 	height: auto;
 `;
 
@@ -138,7 +139,7 @@ const Product = ({ darkMode, setDarkMode }) => {
 	const [isProductAvaliable, setIsProductAvaliable] = useState(true);
 	const [size, setSize] = useState('');
 	const dispatch = useDispatch();
-
+	useScrollToTop();
 	const allColors = Array.from(
 		new Set(product?.stock.flatMap((stockItem) => stockItem.color) || [])
 	);
@@ -169,7 +170,6 @@ const Product = ({ darkMode, setDarkMode }) => {
 	useEffect(() => {
 		// screen goes up when this components loads
 		const getProduct = async () => {
-			window.scrollTo({ top: 0, behavior: 'smooth' });
 			const res = await productById(id, setProduct); // get the specific product info
 			return res;
 		};
