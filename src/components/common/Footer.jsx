@@ -4,6 +4,7 @@ import { mobile } from '../../responsive';
 import { contact, e, social } from '../../utils/data/footerData';
 import { Link } from 'react-router-dom';
 import Announcement from './Announcement';
+import logo from '../../assests/logo.png';
 
 const Container = styled.footer`
 	background-color: ${({ theme }) => theme.bgLighter};
@@ -23,8 +24,9 @@ const Left = styled.aside`
 	padding: 1.25rem;
 `;
 
-const Logo = styled.h3`
-	font-size: 2rem;
+const Logo = styled.img`
+	height: 6.4rem;
+	width: 'auto';
 `;
 
 const Desc = styled.p`
@@ -104,9 +106,14 @@ const Footer = React.memo(() => {
 		<Container role="contentinfo" aria-label="footer">
 			<Wrapper role="complementary">
 				<Left role="table">
-					<Logo aria-label="Lazy logo" role="banner" title="Lazy Trendy">
-						Lazy Trendy
-					</Logo>
+					<Logo
+						aria-label="Lazy logo"
+						role="banner"
+						title="Lazy Trendy"
+						src={logo}
+						alt="Lazy Trendy"
+					/>
+
 					<Desc
 						aria-label="about Lazy"
 						role="complementary"
